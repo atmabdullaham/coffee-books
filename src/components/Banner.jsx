@@ -3,7 +3,7 @@ import nuts from "../assets/nutrition.png";
 const Banner = () => {
   return (
     <div
-      class="hero min-h-[600px]"
+      class="hero min-h-[600px] mt-16"
       style={{
         backgroundImage: `url(${bgImage})`, // Fixed the incorrect interpolation
         backgroundSize: "cover",
