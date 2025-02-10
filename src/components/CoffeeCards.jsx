@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const CoffeeCards = () => {
   const navigate = useNavigate();
+  // navigate("/coffees");
   const data = useLoaderData();
   const { category } = useParams();
   const [coffees, setCoffees] = useState([]);
@@ -21,7 +22,7 @@ const CoffeeCards = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {coffees.map((coffee) => (
           <Card key={coffee.id} coffee={coffee}></Card>
         ))}
