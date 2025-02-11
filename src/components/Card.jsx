@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const Card = ({ coffee }) => {
+import { MdDelete } from "react-icons/md";
+
+const Card = ({ coffee, handleRemove }) => {
   const { name, image, category, origin, type, id, rating, popularity } =
     coffee || {};
+  const { pathname } = useLocation();
+  console.log(pathname);
   return (
-    <div>
+    <div className="relative">
       <Link
         to={`/coffee/${id}`}
         className="transition hover: scale-105 shadow-xl rounded-xl "
@@ -46,6 +50,14 @@ const Card = ({ coffee }) => {
           </div>
         </div>
       </Link>
+      {pathname === "/dashboard" && (
+        <div
+          onClick={() => handleRemove(id)}
+          className="absolute text-2xl p-3 bg-warning rounded-full cursor-pointer z-50 -top-2 -right-2 "
+        >
+          <MdDelete />
+        </div>
+      )}
     </div>
   );
 };
